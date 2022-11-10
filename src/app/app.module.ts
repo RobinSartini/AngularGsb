@@ -7,10 +7,10 @@ import { ComposantRouteurComponent } from './composant-routeur/composant-routeur
 import { ComposantSelecteurComponent } from './composant-selecteur/composant-selecteur.component';
 import { NavbarHtmlComponent } from './navbar/navbar.html.component';
 import { ListefichefraisComponent } from './listefichefrais/listefichefrais.component';
-import { FichefraisComponentComponent } from './fichefrais-component/fichefrais-component.component';
 import { FichefraisComponent } from './fichefrais/fichefrais.component';
 import { AjoutfichefraisComponent } from './ajoutfichefrais/ajoutfichefrais.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import {Fichefrais} from "./metier/fichefrais";
 
 @NgModule({
   declarations: [
@@ -19,16 +19,18 @@ import { ConnexionComponent } from './connexion/connexion.component';
     ComposantSelecteurComponent,
     NavbarHtmlComponent,
     ListefichefraisComponent,
-    FichefraisComponentComponent,
     FichefraisComponent,
     AjoutfichefraisComponent,
     ConnexionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
-  providers: [],
+  providers: [
+    Fichefrais
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
