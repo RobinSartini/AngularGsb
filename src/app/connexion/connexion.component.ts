@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from "@angular/router";
+import{VisiteurService} from "../service/visiteur.service";
+import{Visiteur} from "../metier/visiteur";
 
 @Component({
   selector: 'app-connexion',
@@ -12,10 +14,11 @@ export class ConnexionComponent implements OnInit {
   public userLogin!: string;
   public userMdp!: string;
   public lblMdp : string ='Entrez votre mot de passe : ';
-  public lblLogin : string = 'logi : ';
+  public lblLogin : string = 'login : ';
   public estCache : boolean = true;
   public unVisiteur! : Visiteur;
   private error : string = '';
+
 
   constructor(private unVS: VisiteurService, private router: Router) { }
 
@@ -27,6 +30,23 @@ export class ConnexionComponent implements OnInit {
     this.unVisiteur.login_visiteur= this.userLogin;
     this.unVisiteur.pwd_visiteur=this.userMdp;
     this.unVisiteur.id_visiteur=0;
+
+    this.unVS.getLogin(this.unVisiteur).subscribe(
+      (visiteur) =>{
+        this.unVisiteur = visiteur;
+        if (this.unVisiteur.id_visiteur!=0)
+        {
+          alert("Authentification réussie !!!");
+          localStorage.setItem('id',(this.unVisiteur.id_visiteur).toString());
+        }
+        else {
+          alert("Erreur D'appel ! ");
+        }
+      },
+      (error)=>{
+        this.error=error.message;
+      }
+    )
 
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Frais} from "../metier/Frais";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {ObjectUnsubscribedError, Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,16 @@ export class FicheFraisService {
     });
   }
 
-  getFicheFraisListe(id: number): Observable<any> {
+  getFicheFraisListe(id: number): Observable <any> {
     this.ClientUrl= environment.ENDPOINT + 'api/frais/listeFrais/' + id;
     alert(this.ClientUrl);
     return this.httpClient.get(this.ClientUrl);
   }
+
+  getFicheFrais(id: number): Observable <any> {
+    this.ClientUrl=environment.ENDPOINT + 'api/frais/listeFrais/'+ id;
+    return this.httpClient.get(this.ClientUrl);
+}
 }
 
 
