@@ -3,7 +3,7 @@ import {CommonModule} from "@angular/common";
 import { RouterModule, Routes } from '@angular/router';
 
 import {ListefichefraisComponent} from "./listefichefrais/listefichefrais.component";
-import {Fichefrais} from "./metier/fichefrais";
+import {Frais} from "./metier/Frais";
 import {AjoutfichefraisComponent} from "./ajoutfichefrais/ajoutfichefrais.component";
 import {NavbarHtmlComponent} from "./navbar/navbar.html.component";
 import {ConnexionComponent} from "./connexion/connexion.component";
@@ -11,8 +11,8 @@ import {ConnexionComponent} from "./connexion/connexion.component";
 const routes: Routes = [
   {path:'',redirectTo:'/connexion', pathMatch: 'full' },
   {path:'connexion',component:ConnexionComponent },
-  {path:'ListeficheFrais',component:ListefichefraisComponent },
-  {path: 'modifierFrais/:id', component: Fichefrais},
+  {path:'listefichefrais',component:ListefichefraisComponent },
+  {path: 'modifierFrais/:id', component: Frais},
   {path: 'ajouterFrais', component:AjoutfichefraisComponent},
   {path:'accueil', component:NavbarHtmlComponent}
 ];

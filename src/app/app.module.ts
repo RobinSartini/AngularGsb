@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { ComposantRouteurComponent } from './composant-routeur/composant-routeur.component';
 import { ComposantSelecteurComponent } from './composant-selecteur/composant-selecteur.component';
 import { NavbarHtmlComponent } from './navbar/navbar.html.component';
-import { ListefichefraisComponent } from './listefichefrais/listefichefrais.component';
+import { ListefichefraisComponent} from "./listefichefrais/listefichefrais.component";
 import { FichefraisComponent } from './fichefrais/fichefrais.component';
 import { AjoutfichefraisComponent } from './ajoutfichefrais/ajoutfichefrais.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import {Fichefrais} from "./metier/fichefrais";
+import {FicheFraisService} from './service/fiche-frais.service';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -26,10 +29,12 @@ import {Fichefrais} from "./metier/fichefrais";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [
-    Fichefrais
+    FicheFraisService
   ],
   bootstrap: [AppComponent]
 })

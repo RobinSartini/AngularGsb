@@ -1,4 +1,4 @@
-export class Fichefrais
+export class Frais
 {
   public id_frais: number=2;
   public anneemois: string="08-2022";

@@ -6,7 +6,7 @@ import * as http from "http";
 
 export const environment = {
   production: false,
-  ENDPOINT:"http://localhost/rsart/ProjetWSGsb/public"
+  ENDPOINT:"http://localhost/rsart/ProjetWSGsb/public/"
 };
 
 /*
