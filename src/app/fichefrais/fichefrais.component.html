@@ -1,1 +1,28 @@
-<p>fichefrais works!</p>
+<div>
+  <h1>
+    {{titre}}
+  </h1>
+  <BR> <BR>
+</div>
+<div clas="form-horizontal">
+  <div class="form-group">
+    <label class="col-md-3 col-sm-3 control-label">Date de modification : </label>
+    <div class="col-md-2 col-sm-2">
+      <input type="text" name="dateModification" [(ngModel)]="unFrais.datemodification"  class="form-control" required autofocus>
+    </div>
+  </div>
+</div>
+<div clas="form-horizontal">
+  <div class="form-group">
+    <label class="col-md-3 col-sm-3 control-label">Libellé état : </label>
+    <div class="col-md-2">
+      <select class="form-control" name="cbEtat" [(ngModel)]="unFrais.lib_etat">
+        <option value="0">Sélectionner un état</option>
+        <ng-container *ngFor="let unEtat of mesEtats" selected="">
+          <option [value]="unEtat.id_etat">{{unEtat.lib_etat}}</option>
+        </ng-container>
+      </select>
+    </div>
+  </div>
+</div>
+
